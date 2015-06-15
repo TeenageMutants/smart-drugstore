@@ -42,7 +42,7 @@ group :development, :test do
 	gem 'quiet_assets'
 	# gem 'debugger'
 	gem 'turn', :require => false
-	gem 'asset-image-opt'
+	# gem 'asset-image-opt'
 	gem 'meta_request'
 end
 
