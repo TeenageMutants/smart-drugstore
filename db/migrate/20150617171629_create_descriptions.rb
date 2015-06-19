@@ -6,9 +6,7 @@ class CreateDescriptions < ActiveRecord::Migration
       t.text :warning
       t.text :side_effect
       t.text :storage
-      t.boolean :baby_drug
-
-      t.timestamps null: false
+      t.boolean :baby_drug, default: false
     end
   end
 end

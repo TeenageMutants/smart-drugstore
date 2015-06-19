@@ -11,45 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617171931) do
+ActiveRecord::Schema.define(version: 20150619201852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
   create_table "descriptions", force: :cascade do |t|
-    t.text     "consist"
-    t.text     "using"
-    t.text     "warning"
-    t.text     "side_effect"
-    t.text     "storage"
-    t.boolean  "baby_drug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text    "consist"
+    t.text    "using"
+    t.text    "warning"
+    t.text    "side_effect"
+    t.text    "storage"
+    t.boolean "baby_drug",   default: false
   end
 
   create_table "doses", force: :cascade do |t|
-    t.string   "dose"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "dose", null: false
   end
 
   create_table "drugs", force: :cascade do |t|
-    t.string   "pharmacological_group"
-    t.integer  "international_name_id"
-    t.integer  "trade_name_id"
-    t.integer  "realease_form_id"
-    t.integer  "dose_id"
-    t.integer  "drugstore_id"
-    t.integer  "description_id"
-    t.integer  "price_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string  "pharmacological_group", null: false
+    t.integer "international_name_id"
+    t.integer "trade_name_id"
+    t.integer "realease_form_id"
+    t.integer "dose_id"
+    t.integer "drugstore_id"
+    t.integer "description_id"
+    t.integer "price_id"
   end
 
   add_index "drugs", ["description_id"], name: "index_drugs_on_description_id", using: :btree
@@ -61,22 +53,20 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   add_index "drugs", ["trade_name_id"], name: "index_drugs_on_trade_name_id", using: :btree
 
   create_table "drugstores", force: :cascade do |t|
-    t.string   "name"
-    t.string   "geoposition"
-    t.string   "adress"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "director_firstname"
-    t.string   "director_secondname"
-    t.string   "director_thirdname"
-    t.string   "director_phone"
-    t.integer  "city_id"
-    t.integer  "region_id"
-    t.integer  "holding_id"
-    t.integer  "time_work_id"
-    t.string   "licens"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string  "name",                null: false
+    t.string  "geoposition",         null: false
+    t.string  "adress",              null: false
+    t.string  "phone"
+    t.string  "email"
+    t.string  "director_firstname"
+    t.string  "director_secondname"
+    t.string  "director_thirdname"
+    t.string  "director_phone"
+    t.integer "city_id"
+    t.integer "region_id"
+    t.integer "holding_id"
+    t.integer "time_work_id"
+    t.string  "licens"
   end
 
   add_index "drugstores", ["city_id"], name: "index_drugstores_on_city_id", using: :btree
@@ -85,43 +75,35 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   add_index "drugstores", ["time_work_id"], name: "index_drugstores_on_time_work_id", using: :btree
 
   create_table "holdings", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "adress"
-    t.string   "director_firstname"
-    t.string   "director_secondname"
-    t.string   "director_thirdname"
-    t.string   "director_phone"
-    t.string   "director_email"
-    t.string   "licens"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string "name",                null: false
+    t.string "phone"
+    t.string "adress"
+    t.string "director_firstname"
+    t.string "director_secondname"
+    t.string "director_thirdname"
+    t.string "director_phone"
+    t.string "director_email"
+    t.string "licens"
   end
 
   create_table "infomat_settings", force: :cascade do |t|
-    t.string   "name"
-    t.string   "geoposition"
-    t.string   "setting"
-    t.integer  "region_id"
-    t.integer  "city_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string  "name",        null: false
+    t.string  "geoposition", null: false
+    t.string  "setting"
+    t.integer "region_id"
+    t.integer "city_id"
   end
 
   add_index "infomat_settings", ["city_id"], name: "index_infomat_settings_on_city_id", using: :btree
   add_index "infomat_settings", ["region_id"], name: "index_infomat_settings_on_region_id", using: :btree
 
   create_table "international_names", force: :cascade do |t|
-    t.string   "rus_name"
-    t.string   "lat_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "rus_name", null: false
+    t.string "lat_name", null: false
   end
 
   create_table "pharmacological_groups", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
   create_table "prices", force: :cascade do |t|
@@ -132,40 +114,38 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   end
 
   create_table "realease_forms", force: :cascade do |t|
-    t.string   "realease_form"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string "realease_form", null: false
   end
 
   create_table "regions", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
 
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
+
   create_table "time_works", force: :cascade do |t|
-    t.string   "monday"
-    t.string   "tuesday"
-    t.string   "wednesday"
-    t.string   "thursday"
-    t.string   "friday"
-    t.string   "saturday"
-    t.string   "sunday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "monday",    null: false
+    t.string "tuesday",   null: false
+    t.string "wednesday", null: false
+    t.string "thursday",  null: false
+    t.string "friday",    null: false
+    t.string "saturday",  null: false
+    t.string "sunday",    null: false
   end
 
   create_table "trade_names", force: :cascade do |t|
-    t.string   "rus_name"
-    t.string   "lat_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "rus_name", null: false
+    t.string "lat_name", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -189,14 +169,6 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["role_id"], name: "index_users_roles_on_role_id", using: :btree
-  add_index "users_roles", ["user_id"], name: "index_users_roles_on_user_id", using: :btree
-
   add_foreign_key "drugs", "descriptions"
   add_foreign_key "drugs", "doses"
   add_foreign_key "drugs", "drugstores"
@@ -210,4 +182,6 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   add_foreign_key "drugstores", "time_works"
   add_foreign_key "infomat_settings", "cities"
   add_foreign_key "infomat_settings", "regions"
+  add_foreign_key "roles_users", "roles"
+  add_foreign_key "roles_users", "users"
 end
