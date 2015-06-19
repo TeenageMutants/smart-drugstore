@@ -182,14 +182,12 @@ ActiveRecord::Schema.define(version: 20150617171931) do
     t.string   "firstname"
     t.string   "lastname"
     t.boolean  "block",                  default: false
-    t.integer  "role_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
@@ -212,6 +210,4 @@ ActiveRecord::Schema.define(version: 20150617171931) do
   add_foreign_key "drugstores", "time_works"
   add_foreign_key "infomat_settings", "cities"
   add_foreign_key "infomat_settings", "regions"
-  add_foreign_key "users_roles", "roles"
-  add_foreign_key "users_roles", "users"
 end

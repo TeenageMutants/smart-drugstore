@@ -22,5 +22,13 @@ module SmartDrugstore
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+      config.generators do |g|
+        g.test_framework  :rspec, wiew_spec: false, 
+                          fixture: true,
+                          fixture_replacement: "factory_girl"
+        g.assets = false
+        g.helper = false
+        g.fixture_replacement :factory_girl, dir:'spec/factories'
+      end
   end
 end

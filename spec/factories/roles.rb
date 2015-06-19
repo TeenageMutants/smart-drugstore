@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :role do
-    name "MyString"
+    name { Faker::Lorem.characters(rand(20..100)) }
   end
-
 end

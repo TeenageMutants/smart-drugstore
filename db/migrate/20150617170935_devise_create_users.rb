@@ -34,9 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string      :firstname
       t.string      :lastname
       t.boolean     :block, default: false
-      t.belongs_to  :role, index: true
-
-
+      
       t.timestamps null: false
     end
 
