@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Region, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid regions' do
+		expect(FactoryGirl.build(:region)).to be_valid
+  end
+	it {should have_many(:infomat_settings)}
 end

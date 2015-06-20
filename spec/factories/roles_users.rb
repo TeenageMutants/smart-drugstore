@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :roles_user do
-    rule nil
-user nil
+    role_id {rand(1..10)}
+		user_id {rand(1..10)}
   end
-
 end

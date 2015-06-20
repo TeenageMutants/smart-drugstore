@@ -44,6 +44,7 @@ group :development, :test do
 	gem 'turn', :require => false
 	# gem 'asset-image-opt'
 	gem 'meta_request'
+	gem 'shoulda-matchers'
 end
 
 

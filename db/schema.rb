@@ -182,6 +182,4 @@ ActiveRecord::Schema.define(version: 20150619201852) do
   add_foreign_key "drugstores", "time_works"
   add_foreign_key "infomat_settings", "cities"
   add_foreign_key "infomat_settings", "regions"
-  add_foreign_key "roles_users", "roles"
-  add_foreign_key "roles_users", "users"
 end
