@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe RealeaseForm, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid realease_form' do
+		expect(FactoryGirl.build(:realease_form)).to be_valid
+  end
+	it {should have_many(:drugs)}
 end

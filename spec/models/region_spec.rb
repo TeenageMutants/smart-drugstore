@@ -5,4 +5,5 @@ RSpec.describe Region, type: :model do
 		expect(FactoryGirl.build(:region)).to be_valid
   end
 	it {should have_many(:infomat_settings)}
+	it {should have_many(:drugstores)}
 end

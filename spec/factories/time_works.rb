@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :time_work do
-    monday "MyString"
-tuesday "MyString"
-wednesday "MyString"
-thursday "MyString"
-friday "MyString"
-saturday "MyString"
-sunday "MyString"
+    monday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		tuesday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		wednesday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		thursday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		friday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		saturday {Faker::Time.between(0.days.ago, Time.now, :all)}
+		sunday {Faker::Time.between(0.days.ago, Time.now, :all)}
   end
-
 end

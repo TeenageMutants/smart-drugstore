@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Dose, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid dose' do
+		expect(FactoryGirl.build(:dose)).to be_valid
+  end
+	it {should have_many(:drugs)}
 end

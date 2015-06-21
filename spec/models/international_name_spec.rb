@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe InternationalName, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid international_name' do
+		expect(FactoryGirl.build(:international_name)).to be_valid
+  end
+	it {should have_many(:drugs)}
 end

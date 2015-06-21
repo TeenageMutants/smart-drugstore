@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Holding, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid holding' do
+		expect(FactoryGirl.build(:holding)).to be_valid
+  end
+	it {should have_many(:drugstores)}
 end

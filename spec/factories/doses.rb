@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :dose do
-    dose "MyString"
+    dose { Faker::Lorem.characters(rand(20..100)) }
   end
-
 end
