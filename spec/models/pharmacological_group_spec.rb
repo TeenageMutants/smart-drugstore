@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PharmacologicalGroup, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid pharmacological_group' do
+		expect(FactoryGirl.build(:pharmacological_group)).to be_valid
+	end
 end

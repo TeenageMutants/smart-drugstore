@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Description, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a valid description' do
+		expect(FactoryGirl.build(:description)).to be_valid
+  end
+	it {should have_many(:drugs)}
 end

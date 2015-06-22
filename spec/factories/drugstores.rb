@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :drugstore do
-    name { Faker::Lorem.characters(rand(20..100)) }
 		name { Faker::Lorem.characters(rand(20..100)) }
 		adress { Faker::Address.street_address }
 		phone { Faker::PhoneNumber.cell_phone }

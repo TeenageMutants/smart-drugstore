@@ -8,5 +8,6 @@ RSpec.describe Drugstore, type: :model do
   it {should belong_to(:region)}
   it {should belong_to(:holding)}
   it {should belong_to(:time_work)}
-	#it {should have_many(:drugs)}
+  
+	# it {should has_and_belongs_to_many(:drugs)}
 end
