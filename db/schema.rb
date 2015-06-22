@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621185815) do
+ActiveRecord::Schema.define(version: 20150622194014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,14 +39,12 @@ ActiveRecord::Schema.define(version: 20150621185815) do
     t.integer "trade_name_id"
     t.integer "realease_form_id"
     t.integer "dose_id"
-    t.integer "drugstore_id"
     t.integer "description_id"
     t.integer "price_id"
   end
 
   add_index "drugs", ["description_id"], name: "index_drugs_on_description_id", using: :btree
   add_index "drugs", ["dose_id"], name: "index_drugs_on_dose_id", using: :btree
-  add_index "drugs", ["drugstore_id"], name: "index_drugs_on_drugstore_id", using: :btree
   add_index "drugs", ["international_name_id"], name: "index_drugs_on_international_name_id", using: :btree
   add_index "drugs", ["price_id"], name: "index_drugs_on_price_id", using: :btree
   add_index "drugs", ["realease_form_id"], name: "index_drugs_on_realease_form_id", using: :btree
@@ -59,6 +57,14 @@ ActiveRecord::Schema.define(version: 20150621185815) do
 
   add_index "drugs_drugstores", ["drug_id"], name: "index_drugs_drugstores_on_drug_id", using: :btree
   add_index "drugs_drugstores", ["drugstore_id"], name: "index_drugs_drugstores_on_drugstore_id", using: :btree
+
+  create_table "drugs_pharmagroups", id: false, force: :cascade do |t|
+    t.integer "drug_id"
+    t.integer "pharmagroup_id"
+  end
+
+  add_index "drugs_pharmagroups", ["drug_id"], name: "index_drugs_pharmagroups_on_drug_id", using: :btree
+  add_index "drugs_pharmagroups", ["pharmagroup_id"], name: "index_drugs_pharmagroups_on_pharmagroup_id", using: :btree
 
   create_table "drugstores", force: :cascade do |t|
     t.string  "name",                null: false
@@ -110,7 +116,7 @@ ActiveRecord::Schema.define(version: 20150621185815) do
     t.string "lat_name", null: false
   end
 
-  create_table "pharmacological_groups", force: :cascade do |t|
+  create_table "pharmagroups", force: :cascade do |t|
     t.string "name", null: false
   end
 
@@ -179,7 +185,6 @@ ActiveRecord::Schema.define(version: 20150621185815) do
 
   add_foreign_key "drugs", "descriptions"
   add_foreign_key "drugs", "doses"
-  add_foreign_key "drugs", "drugstores"
   add_foreign_key "drugs", "international_names"
   add_foreign_key "drugs", "prices"
   add_foreign_key "drugs", "realease_forms"
