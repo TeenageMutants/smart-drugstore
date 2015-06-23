@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :drug do
-    pharmacological_group { Faker::Lorem.characters(rand(20..100)) }
+    pharmagroup { Faker::Lorem.characters(rand(20..100)) }
 		international_name_id {rand(1..10)}
 		trade_name_id {rand(1..10)}
 		realease_form_id {rand(1..10)}

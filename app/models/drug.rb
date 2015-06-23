@@ -7,5 +7,4 @@ class Drug < ActiveRecord::Base
   belongs_to :price
 
   has_and_belongs_to_many :drugstores, join_table: 'drugs_drugstores'
-  has_and_belongs_to_many :pharmagroups, join_table: 'drugs_pharmagroups'
 end

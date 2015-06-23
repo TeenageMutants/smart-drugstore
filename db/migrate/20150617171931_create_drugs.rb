@@ -1,7 +1,7 @@
 class CreateDrugs < ActiveRecord::Migration
   def change
     create_table :drugs do |t|
-      t.string :pharmacological_group, null: false
+      t.string :pharmagroup, null: false
       t.belongs_to :international_name, index: true, foreign_key: true
       t.belongs_to :trade_name, index: true, foreign_key: true
       t.belongs_to :realease_form, index: true, foreign_key: true
